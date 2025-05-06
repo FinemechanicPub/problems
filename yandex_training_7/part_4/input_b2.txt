@@ -1,0 +1,20 @@
+size
+push 1
+size
+push 2
+size
+push 3
+size
+exit
+
+
+Ответ
+
+0
+ok
+1
+ok
+2
+ok
+3
+bye

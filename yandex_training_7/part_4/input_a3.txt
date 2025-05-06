@@ -1,0 +1,30 @@
+push 3
+push 14
+size
+clear
+push 1
+back
+push 2
+back
+pop
+size
+pop
+size
+exit
+
+
+Ответ
+
+ok
+ok
+2
+ok
+ok
+1
+ok
+2
+2
+1
+1
+0
+bye

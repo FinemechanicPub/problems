@@ -1,0 +1,10 @@
+push 1
+back
+exit
+
+
+Ответ
+
+ok
+1
+bye
