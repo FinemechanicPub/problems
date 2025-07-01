@@ -1,7 +1,7 @@
 
 def primes(n: int) -> list[int]:
     """
-    Возвращает список простых чисел до в интервале [2, n)
+    Возвращает список простых чисел в интервале [2, n)
     >>> primes(2)
     []
     >>> primes(3)
@@ -11,8 +11,8 @@ def primes(n: int) -> list[int]:
     """
     if n < 3:
         return []
-    sieve = [True] * n
     primes = [2]
+    sieve = [True] * n
     for p in range(3, n, 2):
         if sieve[p]:
             primes.append(p)
