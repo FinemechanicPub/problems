@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 
+#include "mod.h"
 #include "powmod.h"
 
 void test_pow(){
@@ -33,18 +34,54 @@ void test_mul(){
             auto mod_result = mul_mod(a, b, MOD);
             auto expected = a * b % MOD;
             if (mod_result != expected){
-                std::cout << a<< " * " << b << ": " << mod_result << " != " << expected << std::endl; 
+                std::cout << a << " * " << b << ": " << mod_result << " != " << expected << std::endl; 
                 failed++;
             }
             count++;
-    
         }
     }
     std::cout << "Test complete " << failed << "/" << count << " failed" << std::endl;
 }
 
 
+void test_inv(){
+    std::cout << "inv_mod tests" << std::endl;
+    const int MOD = 71;
+    int count = 0;
+    int failed = 0;
+    for (int arg = 1; arg < 50; ++arg){
+        auto result = arg * inv_mod(arg, MOD) % MOD;
+        if (result != 1){
+            std::cout << arg << " ^-1 * " << arg << ": " << result << " != " << 1 << std::endl; 
+            failed++;
+        }
+        count ++;
+    }
+    std::cout << "Test complete " << failed << "/" << count << " failed" << std::endl;
+}
+
+void test_div(){
+    std::cout << "div_mod tests" << std::endl;
+    const int MOD = 71;
+    int count = 0;
+    int failed = 0;
+    for (int a = 1; a < 50; ++a){
+        for (int b = 1; b < 50; ++b) {
+            auto result = div_mod(a, b, MOD);
+            auto check = result * b % MOD;
+            if (check != a){
+                std::cout << "(" << a << "/" << b << ": " << a << " != " << check << std::endl; 
+                failed++;
+            }
+            count ++;
+        }
+    }
+    std::cout << "Test complete " << failed << "/" << count << " failed" << std::endl;
+}
+
 int main(){    
     test_pow();
     test_mul();
+    test_inv();
+    test_div();
 }
